@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://docs.pex.com/ai-song-detector/mcp-documentation/
+server:
+  name: Vobile MCP (Pex AI Song Detector)
+  transport: http
+  url: https://mcp.pex.com/mcp
+  auth:
+    type: oauth2
+    grant_types: [authorization_code, refresh_token]
+    authorization_endpoint: https://mcp.pex.com/mcp/oauth/authorize
+    token_endpoint: https://mcp.pex.com/mcp/oauth/token
+    token_endpoint_auth_methods: [client_secret_post, client_secret_basic]
+    pkce: [S256]
+    note: Client ID and Client Secret are obtained by contacting Pex/Vobile sales; a consent page is shown during the authorization flow.
+  well_known:
+    oauth_authorization_server: well-known/pex-mcp-oauth-authorization-server.json
+    oauth_protected_resource: well-known/pex-mcp-oauth-protected-resource.json
+  tested_clients: [Claude, Grok, Gemini CLI, ChatGPT]
+tools:
+- name: detect_ai_song_from_url
+  description: Analyze audio from a publicly accessible URL to determine whether it contains AI-generated music. Returns is_ai, ai_score, predicted_model.
+  source_operation: https://api.ae.pex.com/v1/ai-detector/detect-url
+- name: detect_ai_song_from_base64
+  description: Analyze base64-encoded audio data for AI-generated music. Intended for small files only, since large payloads can exhaust the agent context window. Returns is_ai, ai_score, predicted_model.
+  source_operation: https://api.ae.pex.com/v1/ai-detector/detect

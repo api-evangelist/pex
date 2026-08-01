@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: derived
+source: authentication/pex-authentication.yml, well-known/pex-well-known.yml, docs.pex.com
+standards:
+- id: oauth2
+  conforms: true
+  evidence: AI Song Detector and Search APIs use OAuth 2.0 client-credentials; MCP server uses OAuth 2.0 authorization-code.
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: token endpoint https://api.ae.pex.com/oauth2/token with grant_type=client_credentials, HTTP Basic client auth.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://mcp.pex.com/.well-known/oauth-authorization-server returns 200 with issuer/authorization/token endpoints.
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: https://mcp.pex.com/.well-known/oauth-protected-resource returns 200.
+- id: pkce-rfc7636
+  conforms: true
+  evidence: MCP authorization server advertises code_challenge_methods_supported [S256].
+- id: mcp
+  conforms: true
+  evidence: Hosted Model Context Protocol server at https://mcp.pex.com/mcp with two published tools.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: APIs use plain HTTP status codes and JSON error bodies, not application/problem+json.
+- id: openapi
+  conforms: false
+  evidence: No published OpenAPI/Swagger specification was found.

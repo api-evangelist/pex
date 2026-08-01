@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pex.com/ (Search, AI Song Detector, and Discovery API auth docs)
+docs: https://docs.pex.com/search/api-documentation/authentication
+summary:
+  types: [http, oauth2]
+  api_key_in: [header]
+  oauth2_flows: [clientCredentials]
+schemes:
+- name: DiscoveryBearerApiKey
+  type: http
+  scheme: bearer
+  applies_to: Pex Discovery API
+  location: 'Authorization: Bearer {API_KEY}'
+  key_management: https://drm.pex.com/settings/api-keys
+  docs: https://docs.api.pex.com/
+  notes: Static API key issued in the Pex DRM settings, presented as a bearer token on every request.
+- name: OAuth2ClientCredentials
+  type: oauth2
+  applies_to: [Pex AI Song Detector API, Pex Search API]
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.ae.pex.com/oauth2/token
+    client_auth: HTTP Basic (CLIENT_ID:CLIENT_SECRET)
+    grant_type: client_credentials
+    token_type: Bearer
+    expires_in: 7200
+  scopes: []
+  notes: Access tokens are valid for two hours (7200s) and should be reused across requests until expiry rather than re-minted per call.
+- name: MCPOAuth2
+  type: oauth2
+  applies_to: Vobile MCP (mcp.pex.com)
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://mcp.pex.com/mcp/oauth/authorize
+    tokenUrl: https://mcp.pex.com/mcp/oauth/token
+    token_endpoint_auth_methods: [client_secret_post, client_secret_basic]
+    pkce: [S256]
+  scopes: []
+  notes: Authorization-code + refresh-token flow with PKCE (S256); advertised via /.well-known/oauth-authorization-server on mcp.pex.com.

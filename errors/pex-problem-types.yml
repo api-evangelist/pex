@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.api.pex.com/ and https://docs.pex.com/ai-song-detector/api-documentation/
+format: http-status
+envelope: JSON body with an error code / message; APIs use standard HTTP status codes rather than RFC 9457 problem+json.
+problems:
+- status: 400
+  title: Bad Request
+  remediation: Validate request parameters and body encoding.
+- status: 401
+  title: Unauthorized
+  remediation: Provide a valid bearer API key (Discovery) or OAuth2 access token (Search / AI Song Detector).
+- status: 403
+  title: Forbidden
+  remediation: The authenticated principal lacks access to the resource or operation.
+- status: 404
+  title: Not Found
+  remediation: The referenced resource (asset, collection, lookup_id) does not exist.
+- status: 405
+  title: Method Not Allowed
+  remediation: Use the HTTP method documented for the endpoint.
+- status: 429
+  title: Too Many Requests
+  remediation: Respect the Discovery API rate limit of 16 requests/second and back off.
+- status: 500
+  title: Internal Server Error
+  remediation: Transient server error; retry with backoff.
+- status: 503
+  title: Service Unavailable
+  remediation: Service temporarily unavailable; retry later.
+ai_song_detector_errors:
+- code: invalid_file
+  meaning: The uploaded file could not be decoded as supported audio.
+- code: too_short
+  meaning: Audio is shorter than the 30-second minimum.
+- code: too_long
+  meaning: Audio exceeds the 15-minute / 100 MB maximum.
+- code: not_enough_music
+  meaning: The clip does not contain enough music to analyze.
+- code: not_found
+  meaning: The referenced audio URL or request could not be found.

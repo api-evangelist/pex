@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.api.pex.com/ and https://docs.pex.com/
+versioning:
+  scheme: uri-path
+  current:
+    discovery_api: v3 (v4 for large >=2GB uploads)
+    ai_song_detector_api: v1
+    search_api: v1 (private testing)
+  docs: https://docs.api.pex.com/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No published deprecation or Sunset/Deprecation-header policy found.
+sla:
+  url: null
+status_page: null
+availability_notes: The Search API is documented as in private testing and not yet generally available. No public status page was found (status.pex.com did not resolve).
+deprecated_operations: []

@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/Pexeso/ai-agents (skills/ai-song-detector/SKILL.md)
+notes: >
+  Pex/Vobile publishes first-party Agent Skills in the Pexeso/ai-agents repository
+  (Apache-2.0), installable via `npx skills add Pexeso/ai-agents`. The AI Song Detector
+  skill is saved verbatim below. The repo also ships an mcp.json wiring the hosted MCP
+  server at https://mcp.pex.com/mcp.
+skills:
+- file: pex-ai-song-detector.md
+  name: pex-ai-song-detector
+  description: Detect whether an audio file contains AI-generated music using the Pex AI Song Detector API, with platform attribution (Suno, Udio, Mureka, Sonauto, ElevenLabs, Boomy).
+  api: Pex AI Song Detector API
+  source: https://github.com/Pexeso/ai-agents/blob/main/skills/ai-song-detector/SKILL.md
+  operations:
+  - detect_ai_song_from_url
+  - detect_ai_song_from_base64

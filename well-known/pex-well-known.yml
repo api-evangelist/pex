@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of /.well-known/ on Pex API and MCP hosts
+hosts:
+- host: https://mcp.pex.com
+  documents:
+  - path: /.well-known/oauth-authorization-server   # RFC 8414
+    status: 200
+    file: pex-mcp-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource      # RFC 9728
+    status: 200
+    file: pex-mcp-oauth-protected-resource.json
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://api.pex.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://api.ae.pex.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://pex.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

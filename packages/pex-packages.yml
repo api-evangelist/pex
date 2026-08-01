@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pex.com/search/sdk-integration/getting-started/language-bindings/ and https://github.com/Pexeso
+notes: >
+  Pex publishes a native C++ Core Library (the Pex SDK) for the Search / automatic
+  content recognition API, with first-party language bindings distributed from the
+  Pexeso GitHub organization. Current stable version is v4.7.0. Most bindings install
+  directly from GitHub rather than a public registry (PHP is on Packagist via Composer).
+  These SDKs cover the Search API; the AI Song Detector and Discovery APIs are called
+  over plain HTTP / OAuth without a dedicated SDK.
+packages:
+- language: python
+  registry: github
+  name: pex-sdk-py
+  url: https://github.com/Pexeso/pex-sdk-py
+  install: pip install git+https://github.com/Pexeso/pex-sdk-py@v4.7.0
+  official: true
+  license: MIT
+- language: go
+  registry: github
+  name: pex-sdk-go
+  url: https://github.com/Pexeso/pex-sdk-go
+  install: go get github.com/Pexeso/pex-sdk-go@v4.7.0
+  official: true
+  license: MIT
+- language: php
+  registry: packagist
+  name: pexeso/pex-sdk-php
+  url: https://github.com/Pexeso/pex-sdk-php
+  install: composer require pexeso/pex-sdk-php:4.7.0
+  official: true
+  license: MIT
+- language: javascript
+  registry: github
+  name: pex-sdk-js
+  url: https://github.com/Pexeso/pex-sdk-js
+  install: npm install git+https://github.com/Pexeso/pex-sdk-js.git#v4.7.0
+  official: true
+  license: MIT
+  notes: Native C++ binding via the Node Addon API; requires Node.js 18.0.0+.

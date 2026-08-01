@@ -1,0 +1,30 @@
+# Pex
+
+> Pex (part of Vobile since April 2025) is a content-identification and digital-rights technology company. Its APIs identify recordings, compositions, and AI-generated music across digital platforms, matching audio even when it has been sped up, slowed down, pitch-shifted, or partially obscured against a registry of 120M+ indexed recordings.
+
+## APIs
+
+- [Pex Discovery API](https://docs.api.pex.com/): DRM/CMS and content-monitoring — manage rights assets, collections, and whitelists; track infringing copies; run takedowns. Base URL https://api.pex.com. Bearer API-key auth. Rate limit 16 requests/second.
+- [Pex AI Song Detector API](https://docs.pex.com/ai-song-detector/api-documentation/): classify whether a track was created by an AI music generator (Suno, Udio, Boomy, ElevenLabs) or a human. Base URL https://api.ae.pex.com. OAuth 2.0 client-credentials. Endpoints POST /v1/ai-detector/detect and POST /v1/ai-detector/detect-url.
+- [Pex Search API](https://docs.pex.com/search/api-documentation/): real-time automatic content recognition (ACR) via audio fingerprints. Base URL https://api.ae.pex.com. OAuth 2.0 client-credentials. Async start-search / check-search workflow keyed by lookup_id. Currently in private testing.
+
+## MCP
+
+- [Vobile MCP server](https://docs.pex.com/ai-song-detector/mcp-documentation/): hosted MCP at https://mcp.pex.com/mcp exposing tools detect_ai_song_from_url and detect_ai_song_from_base64. OAuth 2.0 (authorization-code + PKCE). Tested with Claude, Grok, Gemini CLI, and ChatGPT.
+
+## Docs
+
+- [Developer documentation](https://docs.pex.com)
+- [Discovery API reference](https://docs.api.pex.com/)
+- [Authentication (Search API)](https://docs.pex.com/search/api-documentation/authentication)
+- [API keys / dashboard](https://drm.pex.com/settings/api-keys)
+
+## Artifacts
+
+- Authentication profile: authentication/pex-authentication.yml
+- MCP server manifest: mcp/pex-mcp.yml
+- Well-known index: well-known/pex-well-known.yml
+- API conventions: conventions/pex-conventions.yml
+- Error catalog: errors/pex-problem-types.yml
+- Lifecycle: lifecycle/pex-lifecycle.yml
+- Conformance: conformance/pex-conformance.yml

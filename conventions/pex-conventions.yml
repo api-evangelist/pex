@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.api.pex.com/ and https://docs.pex.com/
+authentication:
+  discovery_api: "Bearer API key ('Authorization: Bearer {API_KEY}')"
+  ae_apis: OAuth 2.0 client-credentials bearer token (2h TTL) from https://api.ae.pex.com/oauth2/token
+  ref: authentication/pex-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented across the Discovery, Search, or AI Song Detector APIs.
+pagination:
+  supported: true
+  scope: Discovery API list endpoints (/v3/cms/assets, /v3/cms/collections, /v3/drm/copies, etc.)
+  notes: List endpoints return collections; specific pagination parameters are documented per endpoint in the reference.
+async_workflow:
+  api: Pex Search API
+  pattern: submit-then-poll
+  notes: A start-search call returns a lookup_id; the check-search endpoint is polled with that id and blocks until the completed search response is available.
+versioning:
+  scheme: uri-path
+  notes: Discovery API uses /v3/ (and /v4/ for large >=2GB uploads); AI Song Detector uses /v1/.
+  ref: lifecycle/pex-lifecycle.yml
+rate_limiting:
+  discovery_api:
+    limit: 16
+    unit: requests/second
+    source: https://docs.api.pex.com/
+    exceeded_status: 429
+errors:
+  style: standard HTTP status codes (400, 401, 403, 404, 405, 429, 500, 503)
+  ai_detector_error_codes: [invalid_file, too_short, too_long, not_enough_music, not_found]
+  ref: errors/pex-problem-types.yml
+media_types:
+  ai_detector_upload: multipart/form-data (field 'file')
+  ai_detector_url: application/x-www-form-urlencoded (field 'url')
+  responses: application/json

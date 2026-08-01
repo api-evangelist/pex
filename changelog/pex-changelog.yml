@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pex.com/search/changelog/
+notes: >
+  Pex publishes a changelog for the Search product covering SDK release notes and Web
+  App updates at https://docs.pex.com/search/changelog/. The Pex SDK (Core Library +
+  language bindings) is versioned semantically; the current stable release is v4.7.0.
+  Full dated per-version entries are maintained on the live changelog pages (SDK Release
+  Notes and Web App Updates) rather than reproduced here.
+scheme: semver
+current_version: 4.7.0
+changelog_urls:
+- name: SDK Release Notes
+  url: https://docs.pex.com/search/changelog/
+- name: Web App Updates
+  url: https://docs.pex.com/search/changelog/
+entries: []
