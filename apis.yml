@@ -12,6 +12,17 @@ description: 'Pex (part of Vobile since April 2025) is a content-identification 
   ElevenLabs. Pex also publishes a hosted MCP server (mcp.pex.com) exposing the AI
   Song Detector to agents. Customers include streaming platforms, distributors, publishers,
   production-music libraries, and collection societies.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
