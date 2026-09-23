@@ -1,0 +1,27 @@
+# Front Door AI Index — pex — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: pex
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: pex.com
+  final_host: pex.com
+  ownership: own
+  owner: pex
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 32
+  host_score: 32
+  density: 36.91
+  words: 867
+  tiers:
+    agentic: 0
+    core: 32
+    model: 0
+  ambiguous: 4
+  top_terms:
+    AI: 28
+    artificial intelligence: 4
+    intelligence: 4
