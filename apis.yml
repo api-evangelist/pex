@@ -45,7 +45,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Developer Tools
@@ -109,6 +109,8 @@ x-enrichment:
   artifacts_added: 12
   pass: local-v1
 common:
+- url: https://pex.com/feed/
+  type: BlogRSS
 - type: Website
   url: https://pex.com
 - type: DeveloperPortal
